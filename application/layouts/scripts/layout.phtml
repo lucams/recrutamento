@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Recrutamento e seleção</title>
+        <?
+        echo $this->headLink();
+        echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="header">
+            <div class="shell">
+                <div id="top">
+                    <h1><a href="#">Recrutamento e Seleção</a></h1>
+                    <div id="top-navigation">
+                        Welcome <a href="#"><strong><?php echo Zend_Auth::getInstance()->getIdentity() ?></strong></a>
+                        <span>|</span>
+                        <a href="#">Ajuda</a>
+                        <span>|</span>
+                        <a href="/autenticacao/logout">Log out</a>
+                    </div>
+                </div>
+                <!-- Main Nav -->
+                <?php if ($this->pagina != '') { ?>
+                    <div id="navigation">
+                        <ul>
+                            <li><a href="/pessoa/listar" <?php echo $this->pagina == 'pessoa' ? 'class="active"' : '' ?> ><span>Pessoa</span></a></li>
+                            <li><a href="/setor/listar" <?php echo $this->pagina == 'setor' ? 'class="active"' : '' ?> ><span>Setor</span></a></li>
+                            <li><a href="/profissao/listar" <?php echo $this->pagina == 'profissao' ? 'class="active"' : '' ?> ><span>Profissão</span></a></li>
+                            <li><a href="/vaga/listar" <?php echo $this->pagina == 'vaga' ? 'class="active"' : '' ?> ><span>Vaga</span></a></li>
+                            <li><a href="/candidato/listar" <?php echo $this->pagina == 'candidato' ? 'class="active"' : '' ?> ><span>Candidato</span></a></li>
+                            <li><a href="/usuario/listar" <?php echo $this->pagina == 'usuario' ? 'class="active"' : '' ?> ><span>Usuário</span></a></li>
+                        </ul>
+                    </div>
+                <?php } ?>
+                <!-- End Main Nav -->
+            </div>
+        </div>
+        <!-- End Header -->
+        <!-- Container -->
+        <div id="container">
+            <div class="shell">
+                <br />
+                <!-- Main -->
+                <div id="main">
+                    <div class="cl">&nbsp;</div>
+                    <!-- Content -->
+                    <div id="content">
+
+                        <?php echo $this->layout()->content; ?>
+
+                    </div>
+                    <!-- End Content -->
+                    <div class="cl">&nbsp;</div>			
+                </div>
+                <!-- Main -->
+            </div>
+        </div>
+        <!-- End Container -->
+        <!-- Footer -->
+        <div id="footer">
+            <div class="shell">
+                <span class="left">&copy; 2012 - Empresa</span>
+                <span class="right">
+                    Design by <a href="#" target="_blank" title="Desenvoldedor">Desenvolvedor</a>
+                </span>
+            </div>
+        </div>
+        <!-- End Footer -->
+    </body>
+</html>
+
+

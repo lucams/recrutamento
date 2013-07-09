@@ -1,0 +1,50 @@
+<!-- Box -->
+<div class="box">
+    <!-- Box Head -->
+    <div class="box-head">
+        <h2 class="left"><?php echo $this->titulo?></h2>
+        <div class="right"><input type="button" class="button" value="Novo" onclick="location.href='/vaga/inserir'" /></div>
+        <div class="right">
+            <form name="pesquisa" method="post" action=""> 
+                <label>Pesquisar</label>
+                <input type="text" name="valor" class="field small-field" />
+                <input type="hidden" name="campo" value="nome" />
+                <input type="submit" class="button" value="Localizar" />
+            </form>
+        </div>
+    </div>
+    <!-- End Box Head -->	
+
+    <!-- Table -->
+    <div class="table">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th width="13"><input type="checkbox" class="checkbox" /></th>
+                <th>Descrição:</th>
+                <th>Data Início:</th>
+                <th>Data Fim:</th>
+                <th width="110" class="ac">Ações</th>
+            </tr>
+
+
+            <?php
+           
+            foreach ($this->lista as $obj) {
+                ?>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td><h3><a href="#"><?= $obj->__get('descricao');?></a></h3></td>
+                    <td><?= $obj->__get('datainicio') ?></td>
+                    <td><?= $obj->__get('datafim') ?></td>
+                    <td><a href="/vaga/excluir/id/<?= $obj->__get('id_vaga') ?>" class="ico del" onclick="return confirm('Deseja excluir?');">Delete</a>
+                        <a href="/vaga/atualizar/id/<?= $obj->__get('id_vaga') ?>" class="ico edit">Edit</a></td>
+                </tr>
+            <? }
+            ?>
+        </table>
+         <?php echo $this->paginationControl($this->lista, 'Sliding', 'paginacao.phtml'); ?>
+    </div>
+    <!-- Table -->
+
+</div>
+<!-- End Box -->
